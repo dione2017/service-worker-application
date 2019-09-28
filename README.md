@@ -194,13 +194,15 @@ this.addEventListener("activate", (event) => {
 
 service-worker修改完成之后，刷新浏览器，切换到控制台可以看到当前sw状态如图：
 
-![](./assets/sw-1.jpg)
+![](./assets/sw-3.jpg)
 
 嗯，大改的意思就是，老的sw还在服役中，页面的控制权还在老的sw上，新的sw已经安装完成，但是处于未激活状态，没有取得页面的控制权利。关于sw的更新后面会继续讨论，我们手动点击skipWaiting，让新的sw立即激活，然后取得页面控制权。
 
 注意：**在开发调试过程中，我们经常需要在控制台对sw进行 skipWaiting、unRegister、delete cache等操作，但是你不要期望用户会这么做，所以在进行线上版本发布时候，一定要慎重，缓存搞的错乱了，用户加载的内容出错了，可是严重故障...**
 
 手动点击skipWaiting后，看到新的sw已经生效了。刷新浏览器，在network选项中可以看到缓存内容的请求已经被拦截了，从sw缓存中获取了。在chrome控制台中，把network状态改成offline，再次刷新浏览器，嗯，虽然没网了，但是还是可以从本地缓存读取内容。
+
+![](./assets/sw-2.jpg)
 
 至此service-worker离线缓存基本原理算是搞清楚了，基本功能也实现了，但是如果要以为这就可以用到生产环境中去，那绝对出大事，因为使用了sw应用的更新可是很有玄妙的。
 
@@ -312,4 +314,4 @@ this.addEventListener("fetch", async (event) => {
 
 下一篇将讲述 serviceWorker 结合 webpack 自动生成离线缓存应用。
 
-本文[github]地址(https://github.com/dione2017/service-worker-application)，如果有帮助欢迎star，如果您能提出宝贵意见建议或者issue那就更好了。
+本文[github](https://github.com/dione2017/service-worker-application)地址，如果有帮助欢迎star，如果您能提出宝贵意见建议或者issue那就更好了。
