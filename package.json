@@ -1,0 +1,21 @@
+{
+  "name": "service-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "servicd-worker"
+  ],
+  "author": "476989623@qq.com",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^6.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.2",
+    "serve-favicon": "^2.5.0"
+  }
+}
